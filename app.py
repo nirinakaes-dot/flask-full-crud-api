@@ -47,6 +47,7 @@ def update_event(event_id):
         return ("Event not found", 404)
     if "title" in data:
         event.title = data["title"]
+
     # TODO: Task 4 - Return and Handle Results
     return jsonify(event.to_dict())
     
@@ -64,8 +65,10 @@ def delete_event(event_id):
 
     # TODO: Task 4 - Return and Handle Results
 
-    events = [e for e in events if e.id != id]
-    return ("Event deleted", 204)
+
+    events.remove(deleted)
+
+    return jsonify(deleted.toDict()),200
 
 if __name__ == "__main__":
     app.run(debug=True)
