@@ -68,7 +68,7 @@ def delete_event(event_id):
 
     events.remove(deleted)
 
-    return jsonify(deleted.toDict()),200
+    return '',204
 
 if __name__ == "__main__":
     app.run(debug=True)
